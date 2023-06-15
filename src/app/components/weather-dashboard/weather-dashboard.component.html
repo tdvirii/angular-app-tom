@@ -1,0 +1,23 @@
+<body class="root">
+    <h1>Weather Dashboard</h1>
+  
+    <mat-form-field appearance="fill" *ngIf="!weatherDetailsRetrieved">
+      <mat-label>Zip Code</mat-label>
+      <input matInput [(ngModel)]="zipCode" placeholder="">
+    </mat-form-field>
+  
+    <button mat-raised-button (click)="getWeatherDetails()" *ngIf="!weatherDetailsRetrieved">Get Weather</button>
+  
+    <div *ngIf="weatherDetails" class="dashboard">
+      <div class="weather-details">
+        <p>City: {{ weatherDetails.city }}</p>
+        <p>Temperature: {{ weatherDetails.temperature }}</p>
+        <p>Humidity: {{ weatherDetails.humidity }}</p>
+        <p>Conditions: {{ weatherDetails.conditions }}</p>
+      </div>
+  
+      <button mat-raised-button (click)="goBack()" class="zip-code">Enter New Zip Code</button>
+    </div>
+</body>
+  
+

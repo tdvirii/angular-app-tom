@@ -1,0 +1,67 @@
+<div class="root" [class.lose-color]="showResult && getResult()==='Computer wins!'" [class.win-color]="showResult && getResult()==='You win!'" [class.tie-color]="showResult && getResult()==='It\'s a tie!'">
+    <ng-container *ngIf="showOriginalContent">
+      <div id="contentContainer">
+        <h1>Rock, Paper, Scissors</h1>
+        <span>Select either rock, paper, or scissors and see if you can beat the computer!</span>
+        <span>Remember: "Rock breaks scissors, scissors cuts paper, paper covers rock." </span>
+        <button mat-raised-button (click)="play('rock')">Rock</button>
+        <button mat-raised-button (click)="play('paper')">Paper</button>
+        <button mat-raised-button (click)="play('scissors')">Scissors</button>
+        <img src="assets/RegalAssuredGossamerwingedbutterfly-size_restricted.gif" alt="My GIF" height="300" width="600">
+      </div>
+    </ng-container>
+  
+    <ng-container *ngIf="!showOriginalContent" style="background-color: antiquewhite;">
+      <div *ngIf="getResult() === 'You win!'" class="win">
+        <h1>You Win</h1>
+      </div>
+  
+      <div *ngIf="getResult() === 'Computer wins!'" class="lose">
+        <h1>You Lose</h1>
+      </div>
+  
+      <div *ngIf="getResult() === 'It\'s a tie!'" class="tie">
+        <h1>Tie Game</h1>
+      </div>
+  
+      <div class="container2">
+  
+      <div [class.hide]="getResult() === 'Computer wins!'" class="user">
+        <div class="image-container" id="user-image">
+          <img *ngIf="userMove == 'rock'" src="assets/rock.png" height="300" width="300">
+          <img *ngIf="userMove == 'paper'" src="assets/paper.png" height="300" width="300">
+          <img *ngIf="userMove == 'scissors'" src="assets/scissors.png" height="300" width="300">
+        </div>
+      <div class="user-selection" id="user-image">
+        <span style="font-size: 40px; margin-left: 70px">YOU</span>
+    </div>
+    </div>
+  
+    <div style="margin-right: 300px;"></div>
+    <span class="versus" style="font-size: 40px;">vs</span>
+    <div style="margin-right: 300px;"></div>
+  
+    <div [class.hide]="getResult() === 'You win!'" class="computer">
+      <div class="image-container" id="computer-image" >
+        <img *ngIf="computerMove == 'rock'" src="assets/rock.png" height="300" width="300">
+        <img *ngIf="computerMove == 'paper'" src="assets/paper.png" height="300" width="300">
+        <img *ngIf="computerMove == 'scissors'" src="assets/scissors.png" height="300" width="300">
+      </div>
+      <div class="computer-selection" id="computer-image">
+        <span style="font-size: 40px; margin-right: 70px">CPU</span>
+      </div>
+    </div>
+    </div>
+    <button class="play-again" mat-raised-button color="primary" (click)="reset()">Play Again</button>
+    </ng-container>
+  </div>
+
+
+
+
+
+
+
+
+
+

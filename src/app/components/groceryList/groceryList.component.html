@@ -1,0 +1,29 @@
+<div class="root">
+    <div class="container">
+      <h2 id="title">Grocery List</h2>
+  
+      <form class="box" (ngSubmit)="handleSubmit()">
+        <input matInput id="box1" type="text" [(ngModel)]="inputValue" placeholder="e.g. eggs" [ngModelOptions]="{ standalone: true }" />
+        <button mat-raised-button id="box2" type="submit">Submit</button>
+      </form>
+  
+      <div>
+          <ul *ngFor="let value of submittedValues; let i = index">{{value}}
+            <span *ngIf="selectedItem === value; else viewMode">
+              <input [(ngModel)]="selectedItem" (keyup.enter)="saveItem()" (blur)="saveItem()" />
+            </span>
+  
+            <button mat-icon-button (click)="deleteItem(i)">
+              <mat-icon class="custom-icon">delete</mat-icon>
+            </button>
+  
+            <ng-template #viewMode>
+              <button mat-icon-button (click)="editItem(value)">
+                <mat-icon class="custom-icon2">edit</mat-icon>
+              </button>
+            </ng-template>         
+          </ul>
+        </div>
+        <button id= "invisible" type="submit" (click)="clearItems()">Clear Items</button>
+  </div>
+</div>

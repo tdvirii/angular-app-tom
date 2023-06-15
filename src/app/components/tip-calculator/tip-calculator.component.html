@@ -1,0 +1,41 @@
+<body>
+  <div class="container">
+
+    <h1>Tip Calculator</h1>
+    <mat-form-field>
+      <mat-label>Dollar Amount</mat-label>
+      <input matInput placeholder="Enter amount" [(ngModel)]="dollarAmount" (change)="updateTipAmount()" >
+      <span matPrefix>$</span>
+    </mat-form-field>
+    
+    
+    <span>Tip </span>
+    <mat-slider  min="0" max="100" step="1">
+      <input matSliderThumb [(ngModel)]="tipPercentage" (change)="updateTipAmount()">
+    </mat-slider>
+    <span id="tp" >{{ tipPercentage % 1 === 0 ? tipPercentage.toFixed(0) : tipPercentage.toFixed(1) }}%</span>
+    
+    <h2 class="results">Results</h2>
+    
+    <mat-card class="tipAmountBox">
+      <mat-card-content>
+        <div class="box">
+          <div class="label">Tip Amount:</div>
+          <div class="value">${{ calculateTipAmount() }}</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="totalBillBox">
+      <mat-card-content>
+        <div class="box">
+          <div class="label">Total Bill with Tip:</div>
+          <div class="value">${{ (+dollarAmount + +calculateTipAmount()) | number: '1.2-2' }}</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+      
+    
+    </div>
+    
+</body>

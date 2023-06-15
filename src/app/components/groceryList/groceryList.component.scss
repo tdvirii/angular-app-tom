@@ -1,0 +1,101 @@
+.root {
+  background: linear-gradient(to bottom, #f6f8e0, #f7f8d2);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start; 
+  justify-content: center;
+  overflow: auto; 
+}
+
+.container {
+  max-width: 700px;
+  margin: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title{
+    font-size: 80px;
+    max-width: 600px;
+    margin-top: 80px;
+    height: 100px;
+}
+
+.invisible{
+      background: transparent;
+      border: none;
+      font-size:0;
+      position: absolute;
+  }
+
+  .custom-icon {
+    font-size: 20px;
+    color: red;
+  }
+
+  .custom-icon2{
+    font-size: 20px;
+    color: green;
+  }
+
+  #box{
+    display: grid;
+    grid-template-columns: 3fr auto; 
+    column-gap: 10px;
+    align-content: center;
+  }
+
+  #box1 {
+    border-color: rgb(172, 172, 250);
+    background-color: rgb(240, 240, 250);
+  }
+
+  #box2 {
+    background-color: rgb(172, 172, 250);
+  }
+
+  #invisible{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    color: red;
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  
+.box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#box1,
+#box2 {
+  margin-top: 30px;
+}
+
+#box1{
+  margin-right: 10px;
+}
+   
+input#box1 {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+  color: #333;
+  font-size: 16px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+input#box1:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
